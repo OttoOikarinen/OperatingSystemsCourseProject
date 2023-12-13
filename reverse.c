@@ -10,6 +10,16 @@ typedef struct list {
     struct list *pNext;
 } LIST;
 
+void freeList(LIST *pHead) {
+    LIST *pCurrent = pHead;
+    while (pCurrent != NULL) {
+        LIST *pTemp = pCurrent;
+        pCurrent = pCurrent->pNext;
+        free(pTemp->pString);
+        free(pTemp);
+    }
+}
+
 void printList(LIST *pHead, FILE *output) {
     int first = 0;
 
@@ -37,11 +47,16 @@ void reverseFile(FILE *input, FILE *output) {
     LIST *pHead = NULL;
     LIST *pCurrent = NULL;
 
+    if (output == stdout) {
+        printf("Write your inputs. When you want to stop, write 'quit'.\n");
+
+    }
+
     while ((nread = getline(&pLine, &dLineLenght, input)) != -1) {
         printf("Retrieved line of length %zd.\n", nread);
 
         if (output == stdout && strcmp(pLine, "quit\n") == 0) {
-            printf("Stopping.\n");
+            printf("Stopping.\n\n");
             break;
         }
         
@@ -68,6 +83,9 @@ void reverseFile(FILE *input, FILE *output) {
         }
     }
     printList(pHead, output);
+    free(pLine);
+    freeList(pHead);
+
 }
 
 
