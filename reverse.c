@@ -47,13 +47,13 @@ void reverseFile(FILE *input, FILE *output) {
         
         LIST *newNode = (LIST *)malloc(sizeof(LIST));
         if (newNode == NULL) {
-            fprintf(stderr, "Memory allocation error\n");
+            fprintf(stderr, "malloc failed\n");
             exit(1);
         }
 
         newNode->pString = strdup(pLine);
         if (newNode->pString == NULL) {
-            fprintf(stderr, "Memory allocation error\n");
+            fprintf(stderr, "Memory allocation error when using strdup.\n");
             free(newNode);
             exit(1);
         }
