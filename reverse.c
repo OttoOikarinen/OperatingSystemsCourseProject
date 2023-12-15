@@ -65,7 +65,7 @@ void reverseFile(FILE *input, FILE *output) {
         printf("Retrieved line of length %zd.\n", nread);
 
         // If user writes 'quit' in terminal, stops getting inputs.
-        if (output == stdout && strcmp(pLine, "quit\n") == 0) {
+        if (input == stdin && strcmp(pLine, "quit\n") == 0) {
             printf("Stopping.\n\n");
             break;
         }
