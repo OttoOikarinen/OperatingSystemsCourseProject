@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
     for (int i = 1; i < argc; i++) { // For every parameter given.
         FILE *input = fopen(argv[i], "r"); // Opens input to chosen file.
         if (!input) { // If fopen did not succeed:
-            fprintf(stderr, "my-cat: cannot open file\n", argv[i]);
+            fprintf(stderr, "my-cat: cannot open file\n");
             exit(1);
         };
 
