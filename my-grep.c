@@ -19,7 +19,7 @@ void grepFile(FILE *input, char *cSearchTerm) {
         char *result = strstr(pLine, cSearchTerm);
         // If user writes 'quit' in terminal, stops getting inputs.
         if (input == stdin && strcmp(pLine, "quit\n") == 0) {
-            printf("Stopping.\n\n");
+            printf("Stopping.\n");
             break;
         }
         if (result != NULL) {
