@@ -1,5 +1,11 @@
-JKokjekaj
-kajdsfölkajsdöfkjsaödkfjaösdlkfjaösdkjföadskjföaldskjföalskdjföaldskjföalsdkjfölaksjfdöaslkdjföldsakjföasldkjföaslkfjösadlkjföalkdsjfölsakdjföaldskfjöldskfjöadskjfödslkfjödslkfjsaölkfjsaödkfjödsalkfjösalkdjfösaldkjfösaldkjfösaldkjfaösdlkjfaösldkjfösalkdfjaölskdjföldsakfjödsalkfjösalkjdöalskfj
-toimii
-joojooo
-jejejes
+Testfile
+searchterm
+This line also includes searchterm
+This includes searchterm
+Testing if searchterm is found
+Hahaha
+fery vunny
+yes
+yes
+searchterm
+one searchterm more
