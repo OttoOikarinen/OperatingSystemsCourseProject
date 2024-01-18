@@ -1,13 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void printFile(FILE *input) {
+void unzipFile(FILE *input) {
     int count;
     char character;
 
+    // While characters left in the file, first read a count number.
     while (fread(&count, sizeof(int), 1, input) == 1) {
-        fread(&character, sizeof(char), 1, input);
-        for (int i = 0; i < count; i++) {
+        fread(&character, sizeof(char), 1, input); // Then read character.
+        for (int i = 0; i < count; i++) { // Print characer as many times as count is.
             printf("%c", character);
         }
     }
@@ -15,18 +16,20 @@ void printFile(FILE *input) {
 
 int main(int argc, char *argv[]) {
 
-    if (argc == 1) { // If no files specified.
+    if (argc == 1) { // If no files specified, give advice.
         printf("my-unzip: file1 [file2 ...]\n");
         exit(1);
     }
 
-    for (int i = 1; i < argc; i++) {
-        FILE *input = fopen(argv[i], "r");
-        if (!input) {
+    for (int i = 1; i < argc; i++) { // For every parameter.
+        FILE *input = fopen(argv[i], "r"); // Open file. 
+        if (!input) { // If file opening failed:
             fprintf(stderr, "my-unzip: cannot open file\n");
             exit(1);
         }
-        printFile(input);
+
+        // For every file: unzip it and then close the file before opening next one. 
+        unzipFile(input);
         fclose(input);
     }
 

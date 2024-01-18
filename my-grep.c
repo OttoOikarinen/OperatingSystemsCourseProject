@@ -10,6 +10,7 @@ void grepFile(FILE *input, char *cSearchTerm) {
     ssize_t nread;
 
     if (input == stdin) {
+         // If user writes 'quit' in terminal, stops getting inputs.
         printf("Write your inputs. When you want to stop, write 'quit'.\n");
 
     }
@@ -39,7 +40,7 @@ int main(int argc, char *argv[]) {
 
     char *cSearchTerm = argv[1];
 
-    if (argc == 2) {
+    if (argc == 2) { // If given only searchterm, search it from the stdin.
         grepFile(stdin, cSearchTerm);
     } else {
         for (int i = 2; i < argc; i++) { // For every parameter given.
@@ -52,7 +53,7 @@ int main(int argc, char *argv[]) {
         // Search the terms in this file.
         grepFile(input, cSearchTerm);
         fclose(input);
+        }
     }
-    }// searchterm for testing :D
     return 0;
 }

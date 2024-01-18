@@ -17,7 +17,7 @@ void printFile(FILE *input) {
 
 int main(int argc, char *argv[]) {
 
-    if (argc == 1) { // No no files specified, just stop.
+    if (argc == 1) { // If no files specified, just stop.
         exit(0);
     } 
 
