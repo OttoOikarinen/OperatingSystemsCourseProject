@@ -59,3 +59,13 @@ main-function is responsible for checking the parameters. If no files are specif
 The zipFile-function is responsible for compressing the file. If the file is empty, it returns nothing. Otherwise it will read characters from the file. If there are multiple same characters back to back, it will count the characters. Then when there are no more same characters, it will print the count and the character. 
 
 ### my-unzip.c
+
+my-unzip is used to decompress the files compressed with my-zip. It gets files as parameters when starting the program. The program is called like:
+./my-unzip file1 [file2 ...]
+
+One file is mandatory, but users can use as many files as they wish.
+
+The program consists of two functions:
+main-function is responsible for checking the parameters. If no files are specified when running the program, it will print advice about the usage of the program and then exit with error. If there are one or more files, the function will try to open them and then pass them as an input to the unzipFile-function. After that, the function will close the file and open another one, if there are parameters left. 
+
+The unzipFile-function is responsible for decompressing the data. It will first read a number and then a character. Then it will print as many characters as the number tells is. This continues as long as there are new characters.
