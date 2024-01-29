@@ -13,6 +13,10 @@ void printFile(FILE *input) {
     while ((nread = getline(&pLine, &iLineLenght, input)) != -1) {
         printf("%s", pLine);
     }
+
+    free(pLine);
+
+    return;
 }
 
 int main(int argc, char *argv[]) {
