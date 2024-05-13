@@ -69,3 +69,69 @@ The program consists of two functions:
 main-function is responsible for checking the parameters. If no files are specified when running the program, it will print advice about the usage of the program and then exit with error. If there are one or more files, the function will try to open them and then pass them as an input to the unzipFile-function. After that, the function will close the file and open another one, if there are parameters left. 
 
 The unzipFile-function is responsible for decompressing the data. It will first read a number and then a character. Then it will print as many characters as the number tells is. This continues as long as there are new characters.
+
+
+## Project 4: Kernel Hacking
+
+To add a system call for getreadcount() to this xv6-kernel, I made the following changes to the code: 
+
+### In `syscall.c` line 106:
+```
+extern int sys_getreadcount(void);
+```
+and line 131: 
+```
+[SYS_getreadcount]  sys_getreadcount,
+```
+
+### In `syscall.h` line 23:
+```
+#define SYS_getreadcount 22   // For assignment
+```
+
+### In `sysproc.c` line 94-98:
+```
+// This whole function was added for assingment
+// It returns the readcount. 
+int sys_getreadcount(void) {
+  return myproc()->readcount;  
+}
+```
+### In `proc.h` line 52:
+
+ ```
+ int readcount;               // For assignment task. 
+ ```
+
+ ### In `usys.S` line 32:
+ ```
+ SYSCALL(getreadcount)
+ ```
+
+### In `user.h` line 26:
+```
+int getreadcount(int reset);
+```
+
+### I then added a new file `getreadcount.c`:
+It is the function that the user is able to call to check what the read count is at the moment. It is accessible on the command line using 
+`getreadcount`.
+
+It has the following code:
+```
+#include "types.h"
+#include "stat.h"
+#include "user.h"
+
+int main(int argc, char *argv[]) {
+
+    printf(1, "Read count at the moment is: %d\n", getreadcount);
+    exit();
+}
+```
+
+
+## Running xv6 kernel:
+
+You can run the xv6 kernel by downloading the source code from my CourseProject repository. Then you can run the kernel by using terminal and command:
+`sudo make qemu`. This requires you have qemu installed. 
