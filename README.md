@@ -2,6 +2,7 @@
 
 Written by: Otto Oikarinen (otto.oikarinen@student.lut.fi)
 Last edited: 18.1.2024
+Code has been written by me. ChatGPT has been used for explaining different functions and helping to debug the code. 
 
 ## Project 1: reverse.c
 
