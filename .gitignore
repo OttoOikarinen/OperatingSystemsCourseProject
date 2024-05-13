@@ -1,4 +1,5 @@
-.vscode
+.vscode/settings.json
+.vscode/tasks.json
 output.txt
 reverse
 my-cat
