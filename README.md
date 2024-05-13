@@ -111,7 +111,7 @@ int sys_getreadcount(void) {
 
 ### In `user.h` line 26:
 ```
-int getreadcount(int reset);
+int getreadcount(void);
 ```
 
 ### I then added a new file `getreadcount.c`:
